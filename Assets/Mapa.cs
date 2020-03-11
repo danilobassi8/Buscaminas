@@ -90,7 +90,7 @@ public class Mapa : MonoBehaviour
                         cubo.GetComponent<cubo>().color = colorCubos;
                     }
 
-
+                    // el nombre tiene un numero más, pero matrizX y matrizY corresponden al indice matricial.
                     cubo.name = "[" + (x + 1) + ", " + (y + 1) + "]";
                     listaCubos[x, y] = cubo;
 
