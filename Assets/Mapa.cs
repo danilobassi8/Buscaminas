@@ -36,9 +36,18 @@ public class Mapa : MonoBehaviour
 
         if (actualizar) // acá adentro voy a actualizar los cubos.
         {
+            actualizar = false;
             purgaHijos();
 
-            actualizar = false;
+            //verifico que los numeros sean mayor a 1 en x y en y. sino, los cambio.
+            if (cantidadEnX < 2)
+            { cantidadEnX = 2; }
+            if (cantidadEnY < 2)
+            { cantidadEnY = 2; }
+            if (cantidadEnX > 80)
+            { cantidadEnX = 80; }
+            if (cantidadEnY > 80)
+            { cantidadEnY = 80; }
 
             anchoCamara = GameObject.Find("Main Camera").gameObject.GetComponent<Camara>().Ancho;
             altoCamara = GameObject.Find("Main Camera").gameObject.GetComponent<Camara>().Alto;
