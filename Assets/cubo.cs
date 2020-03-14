@@ -89,30 +89,22 @@ public class cubo : MonoBehaviour
                 Revelar(matrizX, matrizY);
             }
         }
-
+    }
+    void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(1)) //click derecho
+        {
+            Debug.Log("Right click on this object:  " + matrizX + ", " + matrizY);
+        }
+        if (Input.GetMouseButtonDown(2)) //rueda del medio
+        {
+            Debug.Log("Middle click on this object:  " + matrizX + ", " + matrizY);
+        }
     }
 
     public void Revelar(int x, int y)
     {
-        /*NOTA: Este metodo se sacó afuera porque cuando un casillero está vacio, vuelve a llamar 
-        a este metodo con todos lo de al rededor. 
-        */
         ControladorJuego.GetComponent<controlador_script>().Revelar(matrizX, matrizY);
-        /*
-        bombasCerca = CalculaBombasCerca(matrizX, matrizY);
-        calculaNumerosEnPantalla();
-        if (bombasCerca != 0)
-        {
-            muestraInterior = true;
-        }
-        else
-        {
-            
-            CambiaColor(this.gameObject, new Color(0.7372549f, 0.6980392f, 0.6980392f, 1f));  //HEXA BCB2B2;
-            RevelaBloquesCercanos(matrizX, matrizY);
-        }
-        */
-
 
     }
 
@@ -149,84 +141,6 @@ public class cubo : MonoBehaviour
 
         //color.
 
-    }
-
-
-
-
-
-    public void RevelaBloquesCercanos(int x, int y)
-    {
-        int cantx = GameObject.Find("Mapa").GetComponent<Mapa>().cantidadEnX;
-        int canty = GameObject.Find("Mapa").GetComponent<Mapa>().cantidadEnY;
-
-        if (x != 0 && y != 0 && x != cantx - 1 && y != canty - 1)
-        {
-            Debug.Log("ACA PASE");
-            pintadoBombasCercanas(x - 1, y - 1, x + 1, y + 1);
-        }
-        else if (x == 0)
-        {
-            if (y != 0 && y != canty - 1) // caso donde x=0 pero y no.
-            {
-                pintadoBombasCercanas(x, y - 1, x + 1, y + 1);
-            }
-            else if (y == 0)
-            {
-                pintadoBombasCercanas(x, y, x + 1, y + 1);
-            }
-            else if (y == canty - 1)
-            {
-                pintadoBombasCercanas(x, y - 1, x + 1, y);
-            }
-        }
-        else if (y == 0)
-        {
-            if (x != cantx - 1)
-            {
-                pintadoBombasCercanas(x - 1, y, x + 1, y + 1);
-            }
-            else if (x == cantx - 1)
-            {
-                pintadoBombasCercanas(x - 1, y, x, y + 1);
-            }
-        }
-        else if (x == cantx - 1)
-        {
-            if (y != canty - 1)
-            {
-                pintadoBombasCercanas(x - 1, y - 1, x, y + 1);
-            }
-            else if (y == canty - 1)
-            {
-                pintadoBombasCercanas(x - 1, y - 1, x, y);
-            }
-        }
-        else if (y == canty - 1)
-        {
-            if (x != cantx)
-            {
-                pintadoBombasCercanas(x - 1, y - 1, x + 1, y);
-            }
-        }
-    }
-
-    public void pintadoBombasCercanas(int desdex, int desdey, int hastax, int hastay)
-    {
-        GameObject[,] listaCubos = GameObject.Find("Mapa").GetComponent<Mapa>().listaCubos;
-
-        for (int i = desdex; i <= hastax; i++)
-        {
-            for (int j = desdey; j <= hastay; j++)
-            {
-                if (i != matrizX && j != matrizY) //para evitar recursividad infinita.
-                {
-                    Debug.Log("REVELAR --->" + i.ToString() + "," + j);
-                    Revelar(i, j);
-                }
-
-            }
-        }
     }
 
     public void cambiarColor(Color color)

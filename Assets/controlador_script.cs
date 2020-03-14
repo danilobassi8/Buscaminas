@@ -211,40 +211,6 @@ public class controlador_script : MonoBehaviour
             if (g8.GetComponent<cubo>().clicked == false)
                 Revelar(g8, x, y);
         }
-
-        if (g1 == null)
-        {
-            Debug.Log("g1 es null");
-        }
-        if (g2 == null)
-        {
-            Debug.Log("g2 es null");
-        }
-        if (g3 == null)
-        {
-            Debug.Log("g3 es null");
-        }
-        if (g4 == null)
-        {
-            Debug.Log("g4 es null");
-        }
-        if (g5 == null)
-        {
-            Debug.Log("g5 es null");
-        }
-        if (g6 == null)
-        {
-            Debug.Log("g6 es null");
-        }
-        if (g7 == null)
-        {
-            Debug.Log("g7 es null");
-        }
-        if (g8 == null)
-        {
-            Debug.Log("g8 es null");
-        }
-
     }
 
 
