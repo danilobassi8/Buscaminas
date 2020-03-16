@@ -113,7 +113,7 @@ MonoBehaviour:
   matrizX: 9
   matrizY: 9
   color: {r: 0.81960785, g: 0.7764706, b: 0.7764706, a: 1}
-  relacionBorde: 0.95
+  relacionBorde: 0.9
   ProbabilidadDeBomba: 0.2
   tieneBomba: 0
   muestraInterior: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Mapa : MonoBehaviour
@@ -28,6 +29,7 @@ public class Mapa : MonoBehaviour
         posx = 0; posy = 0;
 
         this.transform.localScale = new Vector3(1, 1, 1);
+        TextoResetear(false);
     }
 
     void Update()
@@ -45,10 +47,10 @@ public class Mapa : MonoBehaviour
             { cantidadEnX = 2; }
             if (cantidadEnY < 2)
             { cantidadEnY = 2; }
-            if (cantidadEnX > 80)
-            { cantidadEnX = 80; }
-            if (cantidadEnY > 80)
-            { cantidadEnY = 80; }
+            if (cantidadEnX > 50)
+            { cantidadEnX = 50; }
+            if (cantidadEnY > 50)
+            { cantidadEnY = 50; }
 
             Camara = GameObject.Find("Main Camera").transform.Find("CamaraInterior").gameObject;
             anchoCamara = Camara.GetComponent<Camara>().Ancho;
@@ -136,6 +138,24 @@ public class Mapa : MonoBehaviour
 
         Color c = new Color(r, g, b, Random.Range(0.7f, 1f));
         return c;
+    }
+    public void ActualizarViaBoton()
+    {
+        this.actualizar = true;
+        TextoResetear(false);
+    }
+    public void ActualizarDificultadMapa()
+    {
+        float dif = GameObject.Find("Selector_Dificultad").GetComponent<Slider>().value;
+        cantidadEnX = (int)Mathf.Floor(dif);
+        cantidadEnY = (int)Mathf.Floor(dif);
+
+        TextoResetear(true);
+    }
+
+    public void TextoResetear(bool activo)
+    {
+        GameObject.Find("Indicativo_Resetear").GetComponent<Text>().enabled = activo;
     }
 }
 
