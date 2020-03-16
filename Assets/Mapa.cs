@@ -18,6 +18,7 @@ public class Mapa : MonoBehaviour
 
     private float posicionInicialX, posicionInicialY, posx, posy;
     public Color colorCubos;
+    private GameObject Camara;
 
     void Start()
     {
@@ -49,15 +50,17 @@ public class Mapa : MonoBehaviour
             if (cantidadEnY > 80)
             { cantidadEnY = 80; }
 
-            anchoCamara = GameObject.Find("Main Camera").gameObject.GetComponent<Camara>().Ancho;
-            altoCamara = GameObject.Find("Main Camera").gameObject.GetComponent<Camara>().Alto;
+            Camara = GameObject.Find("Main Camera").transform.Find("CamaraInterior").gameObject;
+            anchoCamara = Camara.GetComponent<Camara>().Ancho;
+            altoCamara = Camara.GetComponent<Camara>().Alto;
 
             listaCubos = new GameObject[cantidadEnX, cantidadEnY];
 
 
+
             //calculo la posicion inicial de los bloques.
-            posicionInicialX = -anchoCamara / 2 + (anchoCamara / cantidadEnX) / 2;
-            posicionInicialY = altoCamara / 2 - (altoCamara / cantidadEnY) / 2;
+            posicionInicialX = -anchoCamara / 2 + (anchoCamara / cantidadEnX) / 2 + Camara.transform.position.x;
+            posicionInicialY = altoCamara / 2 - (altoCamara / cantidadEnY) / 2 + Camara.transform.position.y;
 
             //rellena el arreglo listacubos con los cubos con su correspondiente tamaño
             for (int x = 0; x <= cantidadEnX - 1; x++)

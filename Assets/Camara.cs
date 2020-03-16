@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class Camara : MonoBehaviour
 {
-    public float Alto, Ancho;
+    public float Alto, Ancho, centro;
 
     void Start()
     {
-        Alto = 2 * Camera.main.orthographicSize;
-        Ancho = Alto * Camera.main.aspect;
-
-		
+        Alto = this.gameObject.GetComponent<Camera>().orthographicSize * 2;
+        Ancho = Alto * this.gameObject.GetComponent<Camera>().aspect;
     }
 
     void Update()
     {
+        Alto = this.gameObject.GetComponent<Camera>().orthographicSize * 2;
+        Ancho = Alto * this.gameObject.GetComponent<Camera>().aspect;
 
-        Alto = 2 * Camera.main.orthographicSize;
-        Ancho = Alto * Camera.main.aspect;
     }
 }

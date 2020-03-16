@@ -151,14 +151,7 @@ public class controlador_script : MonoBehaviour
 
     public void RevelaBloquesCercanos(int x, int y)
     {
-        GameObject g1 = new GameObject();
-        GameObject g2 = new GameObject();
-        GameObject g3 = new GameObject();
-        GameObject g4 = new GameObject();
-        GameObject g5 = new GameObject();
-        GameObject g6 = new GameObject();
-        GameObject g7 = new GameObject();
-        GameObject g8 = new GameObject();
+        GameObject g1, g2, g3, g4, g5, g6, g7, g8;
 
         GameObject MapaActual = GameObject.Find("Mapa");
         x++; y++;
@@ -211,6 +204,8 @@ public class controlador_script : MonoBehaviour
             if (g8.GetComponent<cubo>().clicked == false)
                 Revelar(g8, x, y);
         }
+
+
     }
 
 
