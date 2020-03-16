@@ -116,6 +116,8 @@ MonoBehaviour:
   relacionBorde: 0.95
   ProbabilidadDeBomba: 0.2
   tieneBomba: 0
+  muestraInterior: 0
+  clicked: 0
 --- !u!212 &212229042463408050
 SpriteRenderer:
   m_ObjectHideFlags: 1
